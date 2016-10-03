@@ -2,12 +2,10 @@ import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import jodd.json.JsonSerializer;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 public class Countries {
@@ -26,15 +24,18 @@ public class Countries {
             String[] columns = line.split("\\|");
             Country country = new Country(columns[1], columns[0]);
             firstLetter = String.valueOf(country.getName().charAt(0));
-            countries.add(country);
 
-            // test last letter, if last letter is different than this letter, put it into the map
-            if (firstLetter != lastLetter) {
-                countryList.put(firstLetter, countries);
+            //
+            if (firstLetter.equals(lastLetter)) {
+                countries.add(country);
+
             } else {
                 lastLetter = firstLetter;
                 countries = new ArrayList<>();
+                countries.add(country);
+                countryList.put(firstLetter, countries);
             }
+
         }
             Scanner scanner = new Scanner(System.in);
 

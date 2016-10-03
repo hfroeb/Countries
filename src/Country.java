@@ -16,7 +16,7 @@ public class Country {
     }
     @Override
     public String toString() {
-        return String.format("%s | %s", abbreviation, name);
+        return String.format("%s | %s\n", abbreviation, name);
     }
 
     public String getName() {
