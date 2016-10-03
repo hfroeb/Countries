@@ -1,5 +1,3 @@
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-import jodd.json.JsonSerializer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,7 +23,6 @@ public class Countries {
             Country country = new Country(columns[1], columns[0]);
             firstLetter = String.valueOf(country.getName().charAt(0));
 
-            //
             if (firstLetter.equals(lastLetter)) {
                 countries.add(country);
 
